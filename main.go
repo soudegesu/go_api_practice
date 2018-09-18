@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"fmt"
 	"time"
+	"encoding/json"
 	"github.com/julienschmidt/httprouter"
 )
 
@@ -21,7 +22,11 @@ func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 }
 
 func TodoIndex(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	fmt.Fprintf(w, "Todo Index!")
+	todos := Todos {
+		Todo {Name: "Write presentation"},
+		Todo {Name: "Host meetup"},
+	}
+	json.NewEncoder(w).Encode(todos)
 }
 
 func TodoShow(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
