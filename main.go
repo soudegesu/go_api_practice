@@ -4,8 +4,17 @@ import (
 	"log"
 	"net/http"
 	"fmt"
+	"time"
 	"github.com/julienschmidt/httprouter"
 )
+
+type Todo struct {
+	Name string `json:"name"`
+	Completed bool `json:"completed"`
+	Due time.Time `json:"due"`
+}
+
+type Todos []Todo
 
 func Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	fmt.Fprintf(w, "Welcome")
