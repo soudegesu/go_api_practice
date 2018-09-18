@@ -12,3 +12,5 @@
 *.out
 
 .go-version
+
+go_api_practice
