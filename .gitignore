@@ -13,4 +13,5 @@
 
 .go-version
 
+vendor
 go_api_practice
